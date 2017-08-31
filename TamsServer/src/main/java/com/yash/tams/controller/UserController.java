@@ -34,7 +34,7 @@ public class UserController {
 	/**
 	 * This controller method will return all users from the database
 	 * Headers are added to let the browser know it is OK to receive the response.
-	 * @param responce
+	 * @param responce channges
 	 * @return
 	 */
 	@RequestMapping(TamsServerUrls.USERS)
