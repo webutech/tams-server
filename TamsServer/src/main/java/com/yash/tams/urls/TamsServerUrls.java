@@ -9,7 +9,7 @@ public class TamsServerUrls {
 	public static final String USERS = "/users";
 	public static final String USERS_BY_ID = "/users/{id}";
 	public static final String EDIT_PASSWORD = "/editPassword/{id}";
-	
+	public static final String USER_AUTHENTICATE = "/users/{login}/{password}";
 	//Batch URls
 	
 	//Assignment URLs

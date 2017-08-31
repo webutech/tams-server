@@ -54,5 +54,22 @@ public class UserServiceImpl implements UserService {
 		}
 		
 	}
+	
+	@Override
+	public User authenticateUser(String login, String password) {
+		try {
+			User user = new User();
+			user = userDao.authenticateUser(login, password);
+			if(user != null){
+			
+			return user;
+			}
+		} catch (TamsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 
 }

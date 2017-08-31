@@ -37,4 +37,6 @@ public interface UserService {
 	 * @return
 	 */
 	public boolean registerUser(User user);
+	
+	public User authenticateUser(String login, String password);
 }
