@@ -11,4 +11,10 @@ public class TamsServerUrls {
 	public static final String EDIT_PASSWORD = "/editPassword/{id}";
 	
 	//Batch URls
+	
+	//Assignment URLs
+	public static final String ASSIGNMENTS = "/assignments";
+	public static final String ASSIGNMENTS_BY_ID = "/assignments/{id}";
+	public static final String ASSIGNMENTS_ASSIGN_BATCH = "/assignments/batch";
+	public static final String ASSIGNMENTS_ASSIGN_USER = "/assignments/user";
 }
