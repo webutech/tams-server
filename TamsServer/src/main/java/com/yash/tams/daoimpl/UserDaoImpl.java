@@ -1,5 +1,6 @@
 package com.yash.tams.daoimpl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -63,6 +64,30 @@ public class UserDaoImpl implements UserDao {
 		}catch(Exception e){
 			throw new TamsException(e.getMessage());
 		}
+	}
+	
+	@Override
+	public boolean insertUser(User user) {
+		//Check if user is already registered or not
+		if(this.findUserByUserName(user.getUserName())) return false;
+		
+		//Else
+		String sql="insert into users "
+				+ "(firstname, lastname, username, contact, password, email, batchid, statusid, roleid, createdDate, modifiedDate)"
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, new Object[] {
+				user.getFirstName(),user.getLastName(),user.getUserName(),user.getContact(),user.getPassword(),
+				user.getEmail(), user.getBatchId(), user.getStatusId(), user.getRoleId(),new Date(), new Date()});
+		return true;
+	}
+
+	@Override
+	public boolean findUserByUserName(String userName) {
+		String sql="select * from users where username=?";
+		
+		List<User> users = jdbcTemplate.query(sql, new Object[] {userName}, new UserRowMapper());
+		//If users more than 0
+		return users.size() > 0? true: false;
 	}
 	
 }

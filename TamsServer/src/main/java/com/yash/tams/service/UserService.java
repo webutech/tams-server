@@ -30,5 +30,11 @@ public interface UserService {
 	 */
 	public void editPassword(int id,String newPassword, String oldPassword) throws TamsException;
 
-	
+	/**
+	 * Sends User user to userDao and returns true if user was inserted, else
+	 * returns false because user login name is already in database
+	 * @param user
+	 * @return
+	 */
+	public boolean registerUser(User user);
 }

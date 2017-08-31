@@ -25,6 +25,14 @@ public final class UserRowMapper implements RowMapper<User> {
 		user.setContact(resultSet.getString("contact"));
 		user.setUserName(resultSet.getString("username"));
 		user.setPassword(resultSet.getString("password"));
+		user.setEmail(resultSet.getString("email"));
+		user.setBatchId(resultSet.getInt("batchid"));
+		user.setStatusId(resultSet.getInt("statusid"));
+		user.setRoleId(resultSet.getInt("roleid"));
+		user.setCreatedBy(resultSet.getInt("createdBy"));
+		user.setCreatedDate(resultSet.getDate("createdDate"));
+		user.setModifiedBy(resultSet.getInt("modifiedBy"));
+		user.setModifiedDate(resultSet.getDate("modifiedDate"));
 		return user;
 	}
 }

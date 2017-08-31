@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,6 +67,22 @@ public class UserController {
 		userService.editPassword(id, password.get("newPassword"), password.get("oldPassword"));
 		
 	}
-
-
+	
+	/**
+	 * This controller method will register(insert) an user into the database.
+	 * A success message will be sent to login page if user user name is unique,
+	 * else a failure message will be sent to registration page.
+	 * @param user
+	 */
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value=TamsServerUrls.USERS, method=RequestMethod.POST)
+	public String registerUser(@RequestBody User user) {
+		//Register user into the database if user name is not used
+		String msg = "\"User name is already being used!\"";
+		if(userService.registerUser(user)) {
+			 msg = "\"User was registered successfully!\"";
+		}
+		
+		return "{\"msg\":"+msg+"}";
+	}
 }

@@ -1,5 +1,7 @@
 package com.yash.tams.model;
 
+import java.util.Date;
+
 /**
  * This is the User model/pojo class for the application.
  * Used to pass data through the application
@@ -49,7 +51,22 @@ public class User {
 	 * The roleid foreign key of the user
 	 */
 	private int roleId;
-	
+	/**
+	 * The userid who created this user
+	 */
+	private int createdBy;
+	/**
+	 * The date this user was created
+	 */
+	private Date createdDate;
+	/**
+	 * The userid who modified this user
+	 */
+	private int modifiedBy;
+	/**
+	 * The date this user was modified
+	 */
+	private Date modifiedDate;
 	public int getId() {
 		return id;
 	}
@@ -109,6 +126,30 @@ public class User {
 	}
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+	public int getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public int getModifiedBy() {
+		return modifiedBy;
+	}
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 	
 

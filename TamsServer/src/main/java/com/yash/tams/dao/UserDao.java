@@ -33,6 +33,19 @@ public interface UserDao {
 	 */
 	public void updatePassword(int id,String newPassword, String oldPassword) throws TamsException;
 	
+	/**
+	 * Inserts new user into database if user login name is not found and returns true,
+	 * else returns false
+	 * @param user
+	 * @return
+	 */
+	public boolean insertUser(User user) throws TamsException;
 	
+	/**
+	 * Returns true if user login name is found, else returns false
+	 * @param loginName
+	 * @return
+	 */
+	public boolean findUserByUserName(String userName);
 	
 }

@@ -44,5 +44,15 @@ public class UserServiceImpl implements UserService {
 		userDao.updatePassword(id, newPassword, oldPassword);
 		
 	}	
+	
+	@Override
+	public boolean registerUser(User user) {
+		try {
+		return userDao.insertUser(user);
+		}catch (TamsException e) {
+			return false;
+		}
+		
+	}
 
 }
