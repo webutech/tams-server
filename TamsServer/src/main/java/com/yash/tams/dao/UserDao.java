@@ -48,4 +48,6 @@ public interface UserDao {
 	 */
 	public boolean findUserByUserName(String userName);
 	
+	
+	public User authenticateUser(String login, String password) throws TamsException;
 }

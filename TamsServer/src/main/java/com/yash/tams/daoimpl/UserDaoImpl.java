@@ -90,4 +90,15 @@ public class UserDaoImpl implements UserDao {
 		return users.size() > 0? true: false;
 	}
 	
+	@Override
+	public User authenticateUser(String login, String password) throws TamsException {
+		try{
+			return jdbcTemplate.queryForObject("select * from users where login = ? and password = ? ", new Object[] {login, password}, new UserRowMapper());
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new TamsException(e.getMessage());
+		}
+		
+	}
+	
 }

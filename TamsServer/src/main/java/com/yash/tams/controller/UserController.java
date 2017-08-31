@@ -85,4 +85,37 @@ public class UserController {
 		
 		return "{\"msg\":"+msg+"}";
 	}
+	
+	/**
+	 * this controller will varify the user is registered in the database
+	 * if a successful login is reached the headers will send ok = true
+	 * if login is unsuccessful the hearder will send ok = false
+	 * @param responce
+	 * @param user
+	 * @param login
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value=TamsServerUrls.USER_AUTHENTICATE, method=RequestMethod.POST )
+	public User getAuthentication(HttpServletResponse responce, @PathVariable String login, @PathVariable String password){
+		
+		
+		
+		User user = userService.authenticateUser(login, password);
+		if(user != null){
+			responce.setStatus(200);
+			responce.addHeader("ok", "true");
+			responce.addHeader("Access-Control-Allow-Origin", "*");
+			responce.addHeader("content-type", "application/json");
+			responce.setContentType("application/json");
+			return user;
+		}else{
+			responce.setStatus(404);
+		responce.addHeader("ok", "false");
+		responce.addHeader("Access-Control-Allow-Origin", "*");
+		responce.addHeader("content-type", "application/json");
+		responce.setContentType("application/json");
+		return null;
+		}
+	}
 }
