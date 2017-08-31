@@ -45,4 +45,24 @@ public class UserDaoImpl implements UserDao {
 			throw new TamsException(e.getMessage());
 		}
 	}
+
+	@Override
+	public void updateUser(User user) {
+		 String sql="UPDATE users SET firstname = ?, lastname = ?, email = ?, contact = ? WHERE id = ?";
+		 System.out.println(user.getId());
+		jdbcTemplate.update(sql, new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(),user.getContact(),user.getId()});
+		System.out.println("Success :  User " + user.getFirstName() + " was updated!");
+		
+	}
+	
+	@Override
+	public void updatePassword(int id,String newPassword, String oldPassword) throws TamsException {		
+		try{
+		String sql="UPDATE users SET password = ? WHERE id = ? and password = ?";
+		jdbcTemplate.update(sql, new Object[]{newPassword,id,oldPassword});
+		}catch(Exception e){
+			throw new TamsException(e.getMessage());
+		}
+	}
+	
 }

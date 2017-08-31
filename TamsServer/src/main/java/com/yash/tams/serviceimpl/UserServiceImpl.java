@@ -33,4 +33,16 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public void editUser(User user) {
+		userDao.updateUser(user);
+	}
+	
+	
+	@Override
+	public void editPassword(int id, String newPassword, String oldPassword) throws TamsException {
+		userDao.updatePassword(id, newPassword, oldPassword);
+		
+	}	
+
 }

@@ -19,4 +19,20 @@ public interface UserDao {
 	 */
 	public List<User> getUsers() throws TamsException;
 	
+	/**
+	 * Returns users from the database
+	 * Or returns null if there is an error fetching from the database
+	 * @return
+	 */
+	public void updateUser(User user);
+	
+	/**
+	 * Returns user password from the database
+	 * Or returns null if there is an error fetching from the database
+	 * @return
+	 */
+	public void updatePassword(int id,String newPassword, String oldPassword) throws TamsException;
+	
+	
+	
 }
