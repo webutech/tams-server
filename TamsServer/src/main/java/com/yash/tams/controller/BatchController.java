@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yash.tams.service.BatchService;
 import com.yash.tams.urls.TamsServerUrls;
+import com.yash.tams.exception.TamsException;
 import com.yash.tams.model.Batch;
 
 @RestController
@@ -56,10 +57,11 @@ public class BatchController {
 
 	/**
 	 * Returns the list of batches from the database
+	 * @throws TamsException 
 	 * 
 	 */
 	@RequestMapping(value = TamsServerUrls.LIST_BATCHES)
-	public void getBatches() {
+	public void getBatches() throws TamsException {
 		List<Batch> listofbatches = batchservice.getBatches();
 
 	}

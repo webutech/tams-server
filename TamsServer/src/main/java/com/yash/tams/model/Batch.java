@@ -1,38 +1,69 @@
+/**
+ * 
+ */
 package com.yash.tams.model;
 
 import java.util.Date;
 
+/**
+ * This is the Batch model/pojo class for the application.
+ * @author Anuradha
+ *
+ */
 public class Batch {
-
+	
 	/**
-	 * Id is a field which helps us uniquely identify a batch
+	 * This is the primary key of Batch object & auto-incremented
 	 */
 	private int id;
+	
 	/**
-	 * Represents the name of the batch
+	 * Represents the Name of the Batch
 	 */
 	private String batchName;
-
+	
 	/**
-	 * Represents the userid of the user 
-	 * who created the batch
+	 * Represents the id of a user who created the batch
 	 */
 	private int createdBy;
+	
+	
 	/**
-	 * Represents the userid of the 
-	 * user who modified the batch details
+	 * Represents the date when this batch is created 
+	 */
+	private Date createDate;
+	
+	
+	/**
+	 * Represents the id of a user who modified the batch
 	 */
 	private int modifiedBy;
-	/**
-	 * Represents the created Date
-	 */
-	private Date createdDate;
-	/**
-	 * Represents the ModifiedDate
-	 */
-	private Date ModifiedDate;
 	
-	//private int statusId;
+	
+	/**
+	 * Represents the date when this batch is modified 
+	 */
+	private Date modifiedDate;
+	
+	/**
+	 * StatusId Represents whether a batch is active or not, 1 for active & 2 for inactive 
+	 */
+	private int statusId;
+	
+	
+	
+	public int getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
+	}
+
+	/**
+	 * Represents the status of the Batch, whether it is active (1) or inactive(2)
+	 */
+	
 
 	public int getId() {
 		return id;
@@ -46,6 +77,8 @@ public class Batch {
 		return batchName;
 	}
 
+	
+
 	public void setBatchName(String batchName) {
 		this.batchName = batchName;
 	}
@@ -58,6 +91,14 @@ public class Batch {
 		this.createdBy = createdBy;
 	}
 
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
 	public int getModifiedBy() {
 		return modifiedBy;
 	}
@@ -66,20 +107,13 @@ public class Batch {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
 	public Date getModifiedDate() {
-		return ModifiedDate;
+		return modifiedDate;
 	}
 
 	public void setModifiedDate(Date modifiedDate) {
-		ModifiedDate = modifiedDate;
+		this.modifiedDate = modifiedDate;
 	}
 
+	
 }
