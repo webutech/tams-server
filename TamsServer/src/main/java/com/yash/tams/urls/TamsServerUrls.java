@@ -26,5 +26,13 @@ public class TamsServerUrls {
 	public static final String ASSIGNMENTS_ASSIGN_BATCH = "/assignments/batch";
 	public static final String ASSIGNMENTS_ASSIGN_USER = "/assignments/user";
 	
+	//Submission ULRLs
+	public static final String SUBMISSIONS="/Submissions";
+	public static final String SUBMISSIONS_BY_TRAINEE="/AllTraineeSubmissions";
+	public static final String UPDATE_SUBMISSIONS="/UpdateSubmission";
+	public static final String FILTER_SUBMISSIONS="/FilterSubmissions";
+	
+	
+	
 	
 }

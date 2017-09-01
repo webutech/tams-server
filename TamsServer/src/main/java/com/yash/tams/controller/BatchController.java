@@ -2,6 +2,8 @@ package com.yash.tams.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,7 +62,16 @@ public class BatchController {
 	 * 
 	 */
 	@RequestMapping(value = TamsServerUrls.LIST_BATCHES)
-	public List<Batch> getBatches() throws TamsException {
+	public List<Batch> getBatches(HttpServletResponse responce) throws TamsException {
+//		List<Batch> listofbatches=batchservice.getBatches();
+//		for(Batch batch:listofbatches) {
+//			System.out.println(batch.getBatchName());
+//		}
+		responce.setStatus(200);
+		responce.addHeader("ok", "true");
+		responce.addHeader("Access-Control-Allow-Origin", "*");
+		responce.addHeader("content-type", "application/json");
+		responce.setContentType("application/json");
 		return batchservice.getBatches();
 
 	}
