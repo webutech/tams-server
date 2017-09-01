@@ -78,7 +78,7 @@ public class UserDaoImpl implements UserDao {
 				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql, new Object[] {
 				user.getFirstName(),user.getLastName(),user.getUserName(),user.getContact(),user.getPassword(),
-				user.getEmail(), user.getBatchId(), user.getStatusId(), user.getRoleId(),new Date(), new Date()});
+				user.getEmail(), user.getBatchId(), 2, user.getRoleId(),new Date(), new Date()});
 		return true;
 	}
 

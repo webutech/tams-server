@@ -71,7 +71,7 @@ public class UserController {
 
 	/**
 	 * This controller method will register(insert) an user into the database. A
-	 * success message will be sent to login page if user user name is unique,
+	 * success boolean will be sent to login page if user user name is unique,
 	 * else a failure message will be sent to registration page.
 	 * 
 	 * @param user
@@ -79,13 +79,7 @@ public class UserController {
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = TamsServerUrls.USERS, method = RequestMethod.POST)
 	public String registerUser(@RequestBody User user) {
-		// Register user into the database if user name is not used
-		String msg = "\"User name is already being used!\"";
-		if (userService.registerUser(user)) {
-			msg = "\"User was registered successfully!\"";
-		}
-
-		return "{\"msg\":" + msg + "}";
+		return "{\"status\":" + userService.registerUser(user) + "}";
 	}
 
 	/**
