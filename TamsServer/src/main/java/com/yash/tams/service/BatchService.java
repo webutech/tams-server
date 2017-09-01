@@ -10,8 +10,6 @@ package com.yash.tams.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.yash.tams.exception.TamsException;
 import com.yash.tams.model.Batch;
 

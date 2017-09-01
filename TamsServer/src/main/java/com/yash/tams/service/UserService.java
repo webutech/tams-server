@@ -1,5 +1,6 @@
 package com.yash.tams.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.yash.tams.exception.TamsException;
@@ -39,4 +40,10 @@ public interface UserService {
 	public boolean registerUser(User user);
 	
 	public User authenticateUser(String login, String password);
+	
+	public void resetPassword(String username, String password);
+
+	public Boolean updateUserStatus(String username, int status) throws SQLException;
+	
+	public Boolean updateBatchStatus(String batchName, int status) throws SQLException;
 }

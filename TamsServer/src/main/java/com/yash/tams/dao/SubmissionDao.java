@@ -3,7 +3,6 @@ package com.yash.tams.dao;
 import java.util.List;
 
 import com.yash.tams.exception.TamsException;
-import com.yash.tams.model.User;
 import com.yash.tams.wrapper.SubmissionWrapper;
 
 public interface SubmissionDao {

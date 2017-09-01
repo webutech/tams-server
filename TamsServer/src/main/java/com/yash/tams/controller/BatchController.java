@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yash.tams.service.BatchService;
-import com.yash.tams.urls.TamsServerUrls;
 import com.yash.tams.exception.TamsException;
 import com.yash.tams.model.Batch;
+import com.yash.tams.service.BatchService;
+import com.yash.tams.urls.TamsServerUrls;
 
 @RestController
 public class BatchController {
@@ -61,8 +60,8 @@ public class BatchController {
 	 * 
 	 */
 	@RequestMapping(value = TamsServerUrls.LIST_BATCHES)
-	public void getBatches() throws TamsException {
-		List<Batch> listofbatches = batchservice.getBatches();
+	public List<Batch> getBatches() throws TamsException {
+		return batchservice.getBatches();
 
 	}
 

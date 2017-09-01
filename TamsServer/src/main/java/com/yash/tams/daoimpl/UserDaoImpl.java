@@ -1,5 +1,6 @@
 package com.yash.tams.daoimpl;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -99,6 +100,37 @@ public class UserDaoImpl implements UserDao {
 			throw new TamsException(e.getMessage());
 		}
 		
+	}
+
+	@Override
+	public void resetPassword(String username, String password) {
+		String sql = "update users set password=? where username=?";
+		jdbcTemplate.update(sql, new Object[] { password, username });
+
+	}
+
+	@Override
+	public Boolean updateUserStatus(String username, int status) throws SQLException {
+		try {
+			String sql = "update users set statusid=(select id from status where value = ?) where username=?";
+			jdbcTemplate.update(sql, new Object[] { status, username });
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public Boolean updateBatchStatus(String batchName, int status) throws SQLException {
+		try {
+			String sql = "update batches set id=(select id from status where value = ?) where batchName=?";
+			jdbcTemplate.update(sql, new Object[] { status, batchName });
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 	
 }

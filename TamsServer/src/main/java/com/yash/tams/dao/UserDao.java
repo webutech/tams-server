@@ -1,5 +1,6 @@
 package com.yash.tams.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.yash.tams.exception.TamsException;
@@ -50,4 +51,27 @@ public interface UserDao {
 	
 	
 	public User authenticateUser(String login, String password) throws TamsException;
+	
+	/**
+	 * Resetting the user password
+	 * @param 
+	 * @return
+	 */
+	public void resetPassword(String userName, String password);
+	
+
+	/**
+	 * Updating the status of the user
+	 * @param 
+	 * @return
+	 */
+
+	public Boolean updateUserStatus(String username, int status) throws SQLException;
+
+	/**
+	 * Updating the batch Status
+	 * @param 
+	 * @return
+	 */
+	public Boolean updateBatchStatus(String batchName, int status) throws SQLException;
 }

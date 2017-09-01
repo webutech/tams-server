@@ -5,11 +5,8 @@ package com.yash.tams.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.yash.tams.exception.TamsException;
-import com.yash.tams.model.Batch;
-import com.yash.tams.model.User;
+import com.yash.tams.model.Batch; 
 
 /**
  * This is the Dao Interface for the Batch model.

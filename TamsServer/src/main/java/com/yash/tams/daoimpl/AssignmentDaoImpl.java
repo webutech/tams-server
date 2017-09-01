@@ -80,8 +80,8 @@ public class AssignmentDaoImpl implements AssignmentDao {
 		String sql = "select * from assignments where id = ?";
 		try {
 			System.out.println(id);
-			List assignment = jdbcTemplate.query(sql, new Object[] { id }, new AssignmentRowMapper());
-			return (Assignment) assignment.get(0);
+			List<Assignment> assignmentList = jdbcTemplate.query(sql, new Object[] { id }, new AssignmentRowMapper());
+			return (Assignment) assignmentList.get(0);
 		} catch (Exception e) {
 			throw new TamsException(e.getMessage());
 		}
@@ -101,7 +101,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
 	public int addAssignmentToUser(int assignmentId, int userId) throws TamsException {
 		try {
 			String sql = "update assignments set userid = ? where  id = ?";
-			
+
 			return jdbcTemplate.update(sql, userId, assignmentId);
 		} catch (Exception e) {
 			throw new TamsException(e.getMessage());

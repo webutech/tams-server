@@ -11,10 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yash.tams.dao.SubmissionDao;
 import com.yash.tams.exception.TamsException;
-import com.yash.tams.model.Submission;
-import com.yash.tams.model.User;
 import com.yash.tams.rowmapper.SubmissionRowMapper;
-import com.yash.tams.rowmapper.UserRowMapper;
 import com.yash.tams.wrapper.SubmissionWrapper;
 
 @Repository

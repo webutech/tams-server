@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Starting point of the application
  * @author Susmitha Kandula 
  * @author Anuradha Bhate
+ * @author Srividya Kadiyala
  *
  */
 @SpringBootApplication

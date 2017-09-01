@@ -2,11 +2,9 @@ package com.yash.tams.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.yash.tams.model.Submission;
 import com.yash.tams.wrapper.SubmissionWrapper;
 
 public final class SubmissionRowMapper implements RowMapper<SubmissionWrapper> {

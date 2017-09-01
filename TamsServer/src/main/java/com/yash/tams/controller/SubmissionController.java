@@ -2,8 +2,6 @@ package com.yash.tams.controller;
 
 import java.util.List;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,14 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yash.tams.daoimpl.SubmissionDaoImpl;
 import com.yash.tams.service.SubmissionService;
-import com.yash.tams.wrapper.SubmissionWrapper;
-import com.yash.tams.model.User;
+import com.yash.tams.wrapper.SubmissionWrapper; 
 
 @RestController
 public class SubmissionController {

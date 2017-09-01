@@ -1,6 +1,7 @@
 package com.yash.tams.serviceimpl;
 
-import java.util.List; 
+import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,9 @@ import com.yash.tams.model.User;
 import com.yash.tams.service.UserService;
 
 /**
- * Implementation of the User Service Layer.
- * Access the Dao Layer and business Logic Goes Here
+ * Implementation of the User Service Layer. Access the Dao Layer and business
+ * Logic Goes Here
+ * 
  * @author Brian Sutton
  *
  */
@@ -23,12 +25,12 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Autowired
 	UserDao userDao;
-	
+
 	@Override
 	public List<User> getUsers() {
-		try{
-		return userDao.getUsers();
-		}catch (TamsException e) {
+		try {
+			return userDao.getUsers();
+		} catch (TamsException e) {
 			return null;
 		}
 	}
@@ -37,39 +39,54 @@ public class UserServiceImpl implements UserService {
 	public void editUser(User user) {
 		userDao.updateUser(user);
 	}
-	
-	
+
 	@Override
 	public void editPassword(int id, String newPassword, String oldPassword) throws TamsException {
 		userDao.updatePassword(id, newPassword, oldPassword);
-		
-	}	
-	
+
+	}
+
 	@Override
 	public boolean registerUser(User user) {
 		try {
-		return userDao.insertUser(user);
-		}catch (TamsException e) {
+			return userDao.insertUser(user);
+		} catch (TamsException e) {
 			return false;
 		}
-		
+
 	}
-	
+
 	@Override
 	public User authenticateUser(String login, String password) {
 		try {
 			User user = new User();
 			user = userDao.authenticateUser(login, password);
-			if(user != null){
-			
-			return user;
+			if (user != null) {
+
+				return user;
 			}
 		} catch (TamsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-		
+
+	}
+
+	@Override
+	public void resetPassword(String username, String password) {
+		userDao.resetPassword(username, password);
+
+	}
+
+	@Override
+	public Boolean updateUserStatus(String username, int status) throws SQLException {
+		return userDao.updateUserStatus(username, status);
+	}
+
+	@Override
+	public Boolean updateBatchStatus(String batchName, int status) throws SQLException {
+		return userDao.updateBatchStatus(batchName, status);
 	}
 
 }

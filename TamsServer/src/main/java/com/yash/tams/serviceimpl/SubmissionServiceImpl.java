@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yash.tams.dao.SubmissionDao;
-import com.yash.tams.dao.UserDao;
 import com.yash.tams.exception.TamsException;
-import com.yash.tams.model.User;
 import com.yash.tams.service.SubmissionService;
 import com.yash.tams.wrapper.SubmissionWrapper;
 
