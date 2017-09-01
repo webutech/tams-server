@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yash.tams.service.SubmissionService;
+import com.yash.tams.urls.TamsServerUrls;
 import com.yash.tams.wrapper.SubmissionWrapper; 
 
 @RestController
@@ -23,7 +24,7 @@ public class SubmissionController {
 	@Autowired
 	private HttpSession httpSession;
 	
-	@RequestMapping("/AllTraineeSubmissions")
+	@RequestMapping(value=TamsServerUrls.SUBMISSIONS_BY_TRAINEE)
 	public List<SubmissionWrapper> getAllSubmissions(HttpServletResponse response) {
 		
 		response.setStatus(200);
@@ -40,7 +41,7 @@ public class SubmissionController {
 		
 	}
 	
-	@RequestMapping("/Submissions")
+	@RequestMapping(value=TamsServerUrls.SUBMISSIONS)
 	public List<SubmissionWrapper> getTraineeSubmissions(HttpServletResponse response) {
 		
 		response.setStatus(200);
@@ -58,7 +59,7 @@ public class SubmissionController {
 	}
 	
 	
-	@RequestMapping(value="/UpdateSubmission", method=RequestMethod.PUT, consumes = "application/json")
+	@RequestMapping(value=TamsServerUrls.UPDATE_SUBMISSIONS, method=RequestMethod.PUT, consumes = "application/json")
 	public void updateSubmissionStatus(HttpServletResponse response, 
 										@RequestBody SubmissionUpdate submissionUpdate) {
 		
@@ -71,7 +72,7 @@ public class SubmissionController {
 	}
 	
 	
-	@RequestMapping("/FilterSubmissions")
+	@RequestMapping(value=TamsServerUrls.FILTER_SUBMISSIONS)
 	public List<SubmissionWrapper> filterSubmissions(HttpServletResponse response,
 										@RequestBody FilterSubmissionDetails filterSubmissionDetails) {
 		
